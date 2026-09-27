@@ -241,6 +241,47 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .dish h3 { font-size: 24px; margin-bottom: 10px; }
 .dish p { color: var(--muted); font-size: 16px; }
 
+/* Меню на 14 дней */
+.week-menu { margin-top: 72px; padding: 32px 36px 28px; border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow-sm); }
+.week-menu__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.week-menu__head .eyebrow { margin-bottom: 10px; }
+.week-menu__title { font-size: clamp(24px, 2.4vw, 32px); }
+.week-menu__nav { display: flex; align-items: center; gap: 10px; }
+.week-menu__count { margin-right: 6px; font-size: 14px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.week-menu__arrow {
+  width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%;
+  border: 1.5px solid var(--line); background: var(--white); color: var(--green); cursor: pointer;
+  transition: background-color .2s, color .2s, border-color .2s, opacity .2s;
+}
+.week-menu__arrow:hover:not(:disabled) { background: var(--green); border-color: var(--green); color: var(--white); }
+.week-menu__arrow:disabled { opacity: .35; cursor: default; }
+.week-menu__arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.week-menu__days { display: flex; gap: 8px; margin: 24px 0 20px; padding: 2px; overflow-x: auto; scrollbar-width: none; }
+.week-menu__days::-webkit-scrollbar { display: none; }
+.week-menu__day {
+  flex: none; width: 42px; height: 42px; border: 0; border-radius: 50%;
+  background: var(--bg); font-size: 15px; font-weight: 600; color: var(--muted); cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.week-menu__day:hover { color: var(--ink); }
+.week-menu__day.is-active { background: var(--green); color: var(--white); }
+
+.week-menu__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.week-menu__track::-webkit-scrollbar { display: none; }
+.mday { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+.mday__badge {
+  display: inline-block; margin-bottom: 16px; padding: 7px 16px; border-radius: 10px;
+  background: var(--green); color: #FFC7A0; font-size: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+}
+.mday__meals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.mday__meal { display: flex; align-items: flex-start; gap: 14px; padding: 20px; border-radius: var(--radius-md); background: var(--bg); }
+.mday__icon { flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: var(--orange-50); }
+.mday__icon svg { width: 24px; height: 24px; fill: none; stroke: var(--green); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.mday__label { margin-bottom: 4px; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--orange-600); }
+.mday__dish { font-size: 16px; font-weight: 500; line-height: 1.45; }
+.week-menu__note { margin-top: 16px; font-size: 14px; color: var(--muted); }
+
 /* ==========================================================
    4. Калькулятор
    ========================================================== */
@@ -567,6 +608,16 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
   .dishes { grid-template-columns: 1fr; gap: 40px; }
   .dish--mid { margin-top: 0; }
+  .week-menu { margin-top: 48px; padding: 24px 16px 20px; }
+  .week-menu__head { flex-direction: column; align-items: stretch; gap: 14px; }
+  .week-menu__nav { justify-content: space-between; }
+  .week-menu__count { margin-right: auto; }
+  .week-menu__days { margin: 18px 0 16px; }
+  .week-menu__day { width: 38px; height: 38px; font-size: 14px; }
+  .mday__meals { grid-template-columns: 1fr; gap: 10px; }
+  .mday__meal { padding: 16px; }
+  .mday__icon { width: 42px; height: 42px; }
+  .mday__dish { font-size: 15px; }
 
   .calc__form, .calc__result { padding: 24px 20px; }
   .field-row { gap: 10px; }

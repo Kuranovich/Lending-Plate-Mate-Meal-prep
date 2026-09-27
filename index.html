@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css?v=05a27af5">
+  <link rel="stylesheet" href="assets/styles.css?v=ab51653c">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -138,7 +138,7 @@
   </section>
 
   <!-- ============ 3. ПРИМЕР ДНЯ ============ -->
-  <!-- TODO: сверить описание состава блюд с фактическими технологическими картами -->
+  <!-- Три фото — день 8 из меню на 14 дней -->
   <section class="section section--tint" id="menu">
     <div class="container">
       <div class="section__head section__head--row reveal">
@@ -146,17 +146,17 @@
           <p class="eyebrow" data-i18n="menu.eyebrow">Пример дня питания</p>
           <h2 data-i18n="menu.title">Один день с&nbsp;Plate Mate</h2>
         </div>
-        <p class="section__lead" data-i18n="menu.lead">Настоящие блюда из нашего меню. Меню и размеры порций зависят от выбранного рациона.</p>
+        <p class="section__lead" data-i18n="menu.lead">Настоящие блюда из нашего меню — так выглядит день&nbsp;8. Размер порций зависит от выбранного рациона.</p>
       </div>
 
       <div class="dishes">
         <article class="dish reveal">
           <div class="dish__photo ph" data-label="images/breakfast.jpg">
-            <img src="images/breakfast.jpg" loading="lazy" data-i18n-attr="alt:menu.d1.name" alt="Творожные маффины с фруктами" onerror="this.parentNode.classList.add('missing')">
+            <img src="images/breakfast.jpg" loading="lazy" data-i18n-attr="alt:menu.d1.name" alt="Сырники-маффины с ягодным джемом" onerror="this.parentNode.classList.add('missing')">
           </div>
           <span class="dish__meal" data-i18n="menu.breakfast">Завтрак</span>
-          <h3 data-i18n="menu.d1.name">Творожные маффины с фруктами</h3>
-          <p data-i18n="menu.d1.text">Запечённые творожные маффины с соусом и свежие фрукты — мандарин и питахайя. Белок с утра и естественная сладость фруктов.</p>
+          <h3 data-i18n="menu.d1.name">Сырники-маффины с ягодным джемом</h3>
+          <p data-i18n="menu.d1.text">Сырники-маффины с ягодным джемом и фруктовый микс — мандарин и питахайя. Белок с утра и естественная сладость фруктов.</p>
         </article>
         <article class="dish dish--mid reveal">
           <div class="dish__photo ph" data-motion style="--r:2deg;--rot:-2.5deg;--shift:28px" data-label="images/lunch.jpg">
@@ -164,7 +164,7 @@
           </div>
           <span class="dish__meal" data-i18n="menu.lunch">Обед</span>
           <h3 data-i18n="menu.d2.name">Митболы из телятины с булгуром</h3>
-          <p data-i18n="menu.d2.text">Митболы из телятины в соусе, булгур с горошком, кукурузой и морковью, томаты черри с мягким сыром и песто. Сытный обед: белок и сложные углеводы.</p>
+          <p data-i18n="menu.d2.text">Митболы из телятины, булгур с овощами по-мексикански и салат со страчателлой, томатами черри и песто. Сытный обед: белок и сложные углеводы.</p>
         </article>
         <article class="dish reveal">
           <div class="dish__photo ph" data-label="images/dinner.jpg">
@@ -172,8 +172,30 @@
           </div>
           <span class="dish__meal" data-i18n="menu.dinner">Ужин</span>
           <h3 data-i18n="menu.d3.name">Запечённый сибас с киноа</h3>
-          <p data-i18n="menu.d3.text">Запечённое филе сибаса с лимоном, киноа и овощи соломкой — морковь, перец, спаржа. Лёгкий ужин с рыбным белком.</p>
+          <p data-i18n="menu.d3.text">Запечённое филе сибаса с лимоном, киноа и овощи по-тайски — морковь, перец, спаржа. Лёгкий ужин с рыбным белком.</p>
         </article>
+      </div>
+
+      <!-- Меню на 14 дней: слайды строит скрипт из MENU (assets/app.js) -->
+      <div class="week-menu reveal" id="weekMenu">
+        <div class="week-menu__head">
+          <div>
+            <p class="eyebrow" data-i18n="menu14.eyebrow">Меню на 14 дней</p>
+            <h3 class="week-menu__title" data-i18n="menu14.title">Две недели разнообразного меню</h3>
+          </div>
+          <div class="week-menu__nav">
+            <span class="week-menu__count" id="menuCount" aria-live="polite"></span>
+            <button class="week-menu__arrow" type="button" id="menuPrev" data-i18n-attr="aria-label:menu14.prev" aria-label="Предыдущий день">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button class="week-menu__arrow" type="button" id="menuNext" data-i18n-attr="aria-label:menu14.next" aria-label="Следующий день">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="week-menu__days" id="menuDays" role="tablist" data-i18n-attr="aria-label:menu14.daysLabel" aria-label="Дни меню"></div>
+        <div class="week-menu__track" id="menuTrack" tabindex="0" data-i18n-attr="aria-label:menu14.trackLabel" aria-label="Меню по дням, листайте вправо и влево"></div>
+        <p class="week-menu__note" data-i18n="menu14.note">Размер порций зависит от выбранного рациона. Полный состав любого блюда подскажет менеджер.</p>
       </div>
     </div>
   </section>
@@ -553,6 +575,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/app.js?v=472f7883"></script>
+<script src="assets/app.js?v=7a751f9a"></script>
 </body>
 </html>

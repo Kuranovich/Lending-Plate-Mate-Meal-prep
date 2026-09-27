@@ -26,6 +26,52 @@ const CONFIG = {
   rangeTolerance: 100, // насколько ориентир может выходить за границы ассортимента
 };
 
+/* ---------- Меню на 14 дней: [завтрак, обед, ужин], у каждого блюда ru и en ---------- */
+const MENU = [
+  [['Гречка с омлетом, морковью по-корейски и фруктовым миксом', 'Buckwheat Omelette Breakfast'],
+   ['Запечённое филе сибаса с рисом, овощами и свежим салатом', 'Baked Sea Bass with Vegetable Rice'],
+   ['Куриные котлетки с запечённым картофелем и овощами под пармезаном', 'Chicken Cutlets with Roasted Potatoes']],
+  [['Сочный омлет с грибами, томатами черри, овсянкой и фруктовым миксом', 'Creamy Mushroom Omelette'],
+   ['Боул с лососем, рисом, овощами и соусом терияки', 'Teriyaki Salmon Bowl'],
+   ['Куриные рулетики с ароматным кунжутом, зелёной гречкой и овощами по-тайски', 'Sesame Chicken Rolls with Green Buckwheat']],
+  [['Ленивые вареники с ягодным соусом', 'Cottage Cheese Dumplings with Berry Sauce'],
+   ['Куриное фрикасе с гречкой', 'Creamy Chicken Fricassee with Buckwheat'],
+   ['Боул с лососем, киноа, гуакамоле и овощами', 'Salmon Quinoa Bowl with Guacamole']],
+  [['Сливочный омлет с телятиной, зелёной гречкой и свежим салатом', 'Creamy Veal Omelette with Green Buckwheat'],
+   ['Креветки в медовом соусе тахан с салатом нисуаз', 'Honey-Glazed Shrimp Tahan with Niçoise Salad'],
+   ['Боул с курицей, киноа, гуакамоле, кукурузой и бобами', 'Chicken Quinoa Bowl with Guacamole']],
+  [['Творожные маффины с яблоком, персиком, мёдом и фруктовым миксом', 'Homemade Cottage Cheese Muffins with Apple & Peach'],
+   ['Спагетти терияки с курицей, овощами и кунжутом', 'Teriyaki Chicken Spaghetti with Vegetables'],
+   ['Филе сибаса под пармезановой корочкой с запечённым картофелем и свежим овощным салатом', 'Parmesan-Crusted Sea Bass with Roasted Potatoes']],
+  [['Запечённые яйца с гуакамоле, цельнозерновой овсянкой, морковью по-корейски и фруктовым миксом', 'Baked Eggs with Oatmeal & Guacamole'],
+   ['Запечённый лосось с оливками, овощами и запечённым картофелем', 'Baked Salmon with Olives & Roasted Potatoes'],
+   ['Курица с гречкой, томатами черри, соусом сальса и запечёнными овощами', 'Chicken with Buckwheat & Salsa']],
+  [['Творожная запеканка с ягодным соусом', 'Cottage Cheese Flan with Berry Sauce'],
+   ['Паста с курицей в сливочном соусе', 'Chicken Pasta in Creamy Sauce'],
+   ['Чечевица с яйцом пашот, чесночными креветками и овощами', 'Lentils with Poached Egg & Garlic Shrimp']],
+  [['Сырники-маффины с ягодным джемом и фруктовым миксом', 'Cheesecake Muffins with Berry Jam & Fruit Mix'],
+   ['Митболы из телятины с булгуром, овощами по-мексикански и салатом со страчателлой', 'Veal Meatballs with Bulgur, Mexican Vegetables & Stracciatella Salad'],
+   ['Запечённый сибас с киноа и овощами по-тайски', 'Baked Sea Bass with Quinoa & Thai-Style Vegetables']],
+  [['Цельнозерновая овсянка с омлетом и творожной запеканкой с зеленью', 'Oatmeal & Omelette with Herb Cottage Cheese Bake'],
+   ['Котлетки из телятины с гречкой, брокколи, грибами и овощами', 'Veal Cutlets with Buckwheat & Broccoli'],
+   ['Боул с рисом, курицей, овощами и соусом терияки', 'Teriyaki Chicken Rice Bowl']],
+  [['Творожная запеканка с яблоком, персиком, мёдом и фруктовым миксом', 'Homemade Cottage Cheese Bake with Apple & Peach'],
+   ['Шашлык из куриного бедра с зелёной гречкой, овощами и томатной сальсой', 'Chicken Thigh Skewer with Green Buckwheat'],
+   ['Соте из лосося и кальмаров с рисом и овощами', 'Salmon & Squid Rice Sauté']],
+  [['Боул с лососем, киноа, яйцом и гуакамоле', 'Salmon Quinoa Bowl with Egg & Guacamole'],
+   ['Курица с кунжутом, булгуром, овощами и салатом из красной капусты', 'Sesame Chicken with Bulgur'],
+   ['Паэлья с креветками и морковью по-корейски', 'Shrimp Paella with Korean Carrot Salad']],
+  [['Французский омлет с киноа, овощами и пармезаном', 'French Omelette with Quinoa & Vegetables'],
+   ['Утиная грудка с апельсином, гречкой, овощами и кешью', 'Orange Duck Breast with Buckwheat'],
+   ['Нежная курица с чечевицей и салатом из красной капусты', 'Tender Chicken with Lentils & Red Cabbage Salad']],
+  [['Творожная запеканка с яблоком, персиком, мёдом и фруктовым миксом', 'Homemade Cottage Cheese Bake with Apple & Peach'],
+   ['Боул с рисом, креветками, овощами и соусом терияки', 'Teriyaki Shrimp Rice Bowl'],
+   ['Котлетки из телятины с булгуром и овощами по-тайски', 'Veal Cutlets with Thai-Style Bulgur']],
+  [['Творожная запеканка с ягодным соусом', 'Homemade Cottage Cheese Bake with Berry Sauce'],
+   ['Томлёные митболы из телятины с курагой, гречкой и запечённой морковью', 'Slow-Cooked Veal Meatballs with Buckwheat'],
+   ['Запечённый сибас с киноа, морковью, спаржей и грибами', 'Baked Sea Bass with Quinoa']],
+];
+
 /* ---------- Строки, которые собираются в скрипте ----------
    Статические тексты уже вшиты в разметку: русские — в index.html,
    английские — в en/index.html (собирается tools/build-en.js). */
@@ -47,6 +93,9 @@ const STR = {
     below: (min) => `Ваш ориентир ниже самого лёгкого рациона (${min} ккал). Напишите менеджеру — обсудим, какой вариант подойдёт.`,
     discuss: 'Обсудить с менеджером',
     match: 'подходит', closest: 'ближайший', max: 'максимум',
+    meals: ['Завтрак', 'Обед', 'Ужин'],
+    dayN: n => `День ${n}`,
+    dayOf: (n, total) => `День ${n} из ${total}`,
     goal: { lose: 'снижение веса', keep: 'поддержание веса', gain: 'набор веса' },
     msg: s => [
       'Здравствуйте! Хочу заказать рацион Plate Mate.',
@@ -79,6 +128,9 @@ const STR = {
     below: (min) => `Your guideline is below our lightest plan (${min} kcal). Message our manager and we’ll discuss what suits you.`,
     discuss: 'Discuss with the manager',
     match: 'your plan', closest: 'closest', max: 'maximum',
+    meals: ['Breakfast', 'Lunch', 'Dinner'],
+    dayN: n => `Day ${n}`,
+    dayOf: (n, total) => `Day ${n} of ${total}`,
     goal: { lose: 'weight loss', keep: 'weight maintenance', gain: 'weight gain' },
     msg: s => [
       'Hello! I’d like to order a Plate Mate meal plan.',
@@ -475,7 +527,83 @@ if ('IntersectionObserver' in window) {
 /* ==========================================================
    Старт
    ========================================================== */
+/* ==========================================================
+   Меню на 14 дней: слайды с прокруткой (свайп на телефоне), стрелки и номера дней
+   ========================================================== */
+const MEAL_ICONS = [
+  '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>',
+  '<svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2 1.5-3 4-3 7v3h3"/></svg>',
+  '<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>',
+];
+const menuTrack = $('#menuTrack');
+const menuDays = $('#menuDays');
+let menuIndex = 0;
+
+function renderMenu() {
+  const s = S(), li = state.lang === 'en' ? 1 : 0, total = MENU.length;
+  menuTrack.innerHTML = MENU.map((day, d) => `
+    <article class="mday" role="group" aria-roledescription="slide" aria-label="${s.dayOf(d + 1, total)}">
+      <p class="mday__badge">${s.dayN(d + 1)}</p>
+      <div class="mday__meals">
+        ${day.map((dish, m) => `
+          <div class="mday__meal">
+            <span class="mday__icon" aria-hidden="true">${MEAL_ICONS[m]}</span>
+            <div><p class="mday__label">${s.meals[m]}</p><p class="mday__dish">${dish[li]}</p></div>
+          </div>`).join('')}
+      </div>
+    </article>`).join('');
+  menuDays.innerHTML = MENU.map((_, d) =>
+    `<button type="button" class="week-menu__day" role="tab" data-day="${d}" aria-label="${s.dayN(d + 1)}">${d + 1}</button>`).join('');
+  updateMenuUi();
+}
+
+function updateMenuUi() {
+  const total = MENU.length;
+  $('#menuCount').textContent = S().dayOf(menuIndex + 1, total);
+  $('#menuPrev').disabled = menuIndex === 0;
+  $('#menuNext').disabled = menuIndex === total - 1;
+  $$('.week-menu__day', menuDays).forEach((b, i) => {
+    const on = i === menuIndex;
+    b.classList.toggle('is-active', on);
+    b.setAttribute('aria-selected', String(on));
+  });
+  // держим активный номер дня в поле видимости, не трогая вертикальную прокрутку страницы
+  const chip = menuDays.children[menuIndex];
+  if (chip) {
+    const left = chip.offsetLeft - (menuDays.clientWidth - chip.offsetWidth) / 2;
+    menuDays.scrollTo({ left, behavior: 'smooth' });
+  }
+}
+
+function goToDay(i) {
+  menuIndex = Math.max(0, Math.min(MENU.length - 1, i));
+  menuTrack.scrollTo({ left: menuIndex * menuTrack.clientWidth, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+  updateMenuUi();
+}
+
+$('#menuPrev').addEventListener('click', () => goToDay(menuIndex - 1));
+$('#menuNext').addEventListener('click', () => goToDay(menuIndex + 1));
+menuDays.addEventListener('click', e => {
+  const b = e.target.closest('[data-day]');
+  if (b) goToDay(+b.dataset.day);
+});
+menuTrack.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') { e.preventDefault(); goToDay(menuIndex + 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); goToDay(menuIndex - 1); }
+});
+// свайп: после прокрутки определяем, какой день в кадре
+let menuScrollTimer;
+menuTrack.addEventListener('scroll', () => {
+  clearTimeout(menuScrollTimer);
+  menuScrollTimer = setTimeout(() => {
+    const i = Math.round(menuTrack.scrollLeft / menuTrack.clientWidth);
+    if (i !== menuIndex) { menuIndex = i; updateMenuUi(); }
+  }, 80);
+}, { passive: true });
+window.addEventListener('resize', () => { menuTrack.scrollLeft = menuIndex * menuTrack.clientWidth; });
+
 function renderAll() {
+  renderMenu();
   renderDurations();
   renderPlans();
   renderCalc();
