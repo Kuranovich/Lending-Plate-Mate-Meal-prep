@@ -94,7 +94,7 @@ const STR = {
     discuss: 'Обсудить с менеджером',
     match: 'подходит', closest: 'ближайший', max: 'максимум',
     meals: ['Завтрак', 'Обед', 'Ужин'],
-    dayN: n => `День ${n}`,
+    dayN: n => `${n} день`,
     dayOf: (n, total) => `День ${n} из ${total}`,
     goal: { lose: 'снижение веса', keep: 'поддержание веса', gain: 'набор веса' },
     msg: s => [
@@ -536,14 +536,13 @@ const MEAL_ICONS = [
   '<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>',
 ];
 const menuTrack = $('#menuTrack');
-const menuDays = $('#menuDays');
 let menuIndex = 0;
 
 function renderMenu() {
   const s = S(), li = state.lang === 'en' ? 1 : 0, total = MENU.length;
   menuTrack.innerHTML = MENU.map((day, d) => `
     <article class="mday" role="group" aria-roledescription="slide" aria-label="${s.dayOf(d + 1, total)}">
-      <p class="mday__badge">${s.dayN(d + 1)}</p>
+      <div class="mday__head"><p class="mday__badge">${s.dayN(d + 1)}</p></div>
       <div class="mday__meals">
         ${day.map((dish, m) => `
           <div class="mday__meal">
@@ -552,8 +551,6 @@ function renderMenu() {
           </div>`).join('')}
       </div>
     </article>`).join('');
-  menuDays.innerHTML = MENU.map((_, d) =>
-    `<button type="button" class="week-menu__day" role="tab" data-day="${d}" aria-label="${s.dayN(d + 1)}">${d + 1}</button>`).join('');
   updateMenuUi();
 }
 
@@ -562,17 +559,8 @@ function updateMenuUi() {
   $('#menuCount').textContent = S().dayOf(menuIndex + 1, total);
   $('#menuPrev').disabled = menuIndex === 0;
   $('#menuNext').disabled = menuIndex === total - 1;
-  $$('.week-menu__day', menuDays).forEach((b, i) => {
-    const on = i === menuIndex;
-    b.classList.toggle('is-active', on);
-    b.setAttribute('aria-selected', String(on));
-  });
-  // держим активный номер дня в поле видимости, не трогая вертикальную прокрутку страницы
-  const chip = menuDays.children[menuIndex];
-  if (chip) {
-    const left = chip.offsetLeft - (menuDays.clientWidth - chip.offsetWidth) / 2;
-    menuDays.scrollTo({ left, behavior: 'smooth' });
-  }
+  // текущий день яркий, соседние приглушены — видно при перелистывании
+  $$('.mday', menuTrack).forEach((el, i) => el.classList.toggle('is-current', i === menuIndex));
 }
 
 function goToDay(i) {
@@ -583,10 +571,6 @@ function goToDay(i) {
 
 $('#menuPrev').addEventListener('click', () => goToDay(menuIndex - 1));
 $('#menuNext').addEventListener('click', () => goToDay(menuIndex + 1));
-menuDays.addEventListener('click', e => {
-  const b = e.target.closest('[data-day]');
-  if (b) goToDay(+b.dataset.day);
-});
 menuTrack.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') { e.preventDefault(); goToDay(menuIndex + 1); }
   if (e.key === 'ArrowLeft') { e.preventDefault(); goToDay(menuIndex - 1); }

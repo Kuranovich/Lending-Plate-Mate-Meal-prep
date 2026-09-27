@@ -257,23 +257,23 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .week-menu__arrow:disabled { opacity: .35; cursor: default; }
 .week-menu__arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
-.week-menu__days { display: flex; gap: 8px; margin: 24px 0 20px; padding: 2px; overflow-x: auto; scrollbar-width: none; }
-.week-menu__days::-webkit-scrollbar { display: none; }
-.week-menu__day {
-  flex: none; width: 42px; height: 42px; border: 0; border-radius: 50%;
-  background: var(--bg); font-size: 15px; font-weight: 600; color: var(--muted); cursor: pointer;
-  transition: background-color .2s, color .2s;
-}
-.week-menu__day:hover { color: var(--ink); }
-.week-menu__day.is-active { background: var(--green); color: var(--white); }
-
-.week-menu__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.week-menu__track { display: flex; margin-top: 28px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
 .week-menu__track::-webkit-scrollbar { display: none; }
 .mday { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
-.mday__badge {
-  display: inline-block; margin-bottom: 16px; padding: 7px 16px; border-radius: 10px;
-  background: var(--green); color: #FFC7A0; font-size: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+.mday__head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.mday__head::before, .mday__head::after {
+  content: ""; flex: 1; height: 7px;
+  background: radial-gradient(circle, #D9A15F 3px, transparent 3.5px) left center / 7px 7px no-repeat,
+              linear-gradient(#E8C9A2, #E8C9A2) center / 100% 1.5px no-repeat;
 }
+.mday__head::after { transform: scaleX(-1); }
+.mday__badge {
+  padding: 12px 30px; border-radius: 14px; background: var(--green); box-shadow: var(--shadow-sm);
+  color: #F2C27E; font-size: 22px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+}
+.mday { transition: opacity .45s var(--ease), transform .45s var(--ease); }
+.mday:not(.is-current) { opacity: .35; transform: scale(.96); }
+@media (prefers-reduced-motion: reduce) { .mday { transition: none; } .mday:not(.is-current) { transform: none; } }
 .mday__meals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .mday__meal { display: flex; align-items: flex-start; gap: 14px; padding: 20px; border-radius: var(--radius-md); background: var(--bg); }
 .mday__icon { flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: var(--orange-50); }
@@ -612,8 +612,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .week-menu__head { flex-direction: column; align-items: stretch; gap: 14px; }
   .week-menu__nav { justify-content: space-between; }
   .week-menu__count { margin-right: auto; }
-  .week-menu__days { margin: 18px 0 16px; }
-  .week-menu__day { width: 38px; height: 38px; font-size: 14px; }
+  .mday__badge { padding: 10px 22px; font-size: 18px; }
+  .mday__head { gap: 10px; margin-bottom: 16px; }
   .mday__meals { grid-template-columns: 1fr; gap: 10px; }
   .mday__meal { padding: 16px; }
   .mday__icon { width: 42px; height: 42px; }

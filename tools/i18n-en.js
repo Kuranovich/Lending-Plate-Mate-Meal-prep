@@ -52,7 +52,6 @@ module.exports = {
   'menu.d3.text': 'Baked sea bass fillet with lemon, quinoa and Thai-style vegetables — carrot, pepper, asparagus. A light dinner with fish protein.',
   'menu14.note': 'Portion sizes depend on the plan you choose. Our manager can share the full ingredients of any dish.',
   'menu14.trackLabel': 'Menu by day, swipe left and right',
-  'menu14.daysLabel': 'Menu days',
   'menu14.next': 'Next day',
   'menu14.prev': 'Previous day',
   'menu14.title': 'Two weeks of varied meals',
