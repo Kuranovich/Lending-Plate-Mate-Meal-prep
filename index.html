@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="meta.title">Plate Mate — рационы питания с доставкой в Паттайе</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Готовые рационы на день: завтрак, обед и ужин с понятной калорийностью и БЖУ. Пять вариантов калорийности, бесплатная доставка по Паттайе раз в два дня.">
+  <meta name="theme-color" content="#FFF5EE">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- ============ ШАПКА ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <!-- Официальный логотип из брендбука: положите файл в images/logo.svg -->
+    <a class="logo" href="#top" aria-label="Plate Mate">
+      <img src="images/logo.svg" alt="Plate Mate" onerror="this.parentNode.classList.add('logo--text')">
+      <span class="logo__text">Plate<b>Mate</b></span>
+    </a>
+
+    <nav class="nav" id="nav" data-i18n-attr="aria-label:nav.label" aria-label="Навигация по странице">
+      <a href="#approach" data-i18n="nav.approach">Подход</a>
+      <a href="#menu" data-i18n="nav.menu">Меню</a>
+      <a href="#calculator" data-i18n="nav.calc">Калькулятор</a>
+      <a href="#plans" data-i18n="nav.plans">Цены</a>
+      <a href="#delivery" data-i18n="nav.delivery">Доставка</a>
+      <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+      <a class="btn btn--primary nav__cta" href="#plans" data-i18n="cta.choose">Выбрать рацион</a>
+    </nav>
+
+    <div class="header__actions">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn--primary btn--sm header__cta" href="#plans" data-i18n="cta.choose">Выбрать рацион</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:nav.open" aria-label="Открыть меню">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ 1. ПЕРВЫЙ ЭКРАН ============ -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__text reveal">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Рационы питания с доставкой · Паттайя</p>
+        <h1 data-i18n="hero.title">Забота о себе начинается с&nbsp;ежедневного питания</h1>
+        <p class="lead" data-i18n="hero.lead">Готовые рационы на день — завтрак, обед и ужин — с понятной калорийностью и БЖУ. Пять вариантов калорийности и бесплатная доставка по Паттайе раз в два дня.</p>
+        <div class="hero__buttons">
+          <a class="btn btn--primary btn--lg" href="#calculator" data-i18n="hero.btnCalc">Подобрать рацион</a>
+          <a class="btn btn--accent btn--lg" href="#plans" data-trial data-i18n="hero.btnTrial">Попробовать 2 дня −30%</a>
+        </div>
+        <ul class="hero__facts">
+          <li><strong>1250–2200</strong><span data-i18n="hero.fact1">ккал в день — пять вариантов</span></li>
+          <li><strong>3</strong><span data-i18n="hero.fact2">приёма пищи каждый день</span></li>
+          <li><strong data-i18n="hero.fact3n">0&nbsp;฿</strong><span data-i18n="hero.fact3">доставка раз в два дня</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__media">
+        <div class="hero__photo ph" data-motion style="--r:-3deg;--rot:3deg;--shift:36px" data-label="images/hero.jpg">
+          <img src="images/hero.jpg" data-i18n-attr="alt:hero.alt" alt="Лосось со спаржей, салат с креветками и паста с креветками" fetchpriority="high" onerror="this.parentNode.classList.add('missing')">
+        </div>
+        <div class="chip chip--price">
+          <span data-i18n="hero.chipFrom">от</span> <strong>750&nbsp;฿</strong> <span data-i18n="hero.chipDay">в день</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. НАШ ПОДХОД ============ -->
+  <section class="section" id="approach">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow" data-i18n="approach.eyebrow">Наш подход</p>
+        <h2 data-i18n="approach.title">Польза — в&nbsp;составе, порциях и&nbsp;регулярности</h2>
+        <p class="section__lead" data-i18n="approach.lead">Мы не обещаем чудес. Мы делаем так, чтобы полноценно питаться каждый день было просто: понятный состав, выверенные порции и три приёма пищи.</p>
+      </div>
+
+      <div class="features">
+        <article class="feature reveal">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 5v11l8 6"/></svg>
+          </div>
+          <span class="feature__num">01</span>
+          <h3 data-i18n="approach.f1.title">Белок и понятные ориентиры по&nbsp;БЖУ</h3>
+          <p data-i18n="approach.f1.text">Для каждого рациона указаны калорийность, белки, жиры и углеводы. В основе блюд — источники белка: творог, курица, утка, телятина и рыба. Свинину мы не используем. Вы знаете, что едите, без подсчётов и взвешиваний.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M5 22h22"/><path d="M8 22a8 8 0 0 1 16 0"/><path d="M16 11V8"/><path d="M12 26h8"/></svg>
+          </div>
+          <span class="feature__num">02</span>
+          <h3 data-i18n="approach.f2.title">Продуманные порции и&nbsp;пять вариантов калорийности</h3>
+          <p data-i18n="approach.f2.text">От 1250 до 2200 ккал в день. Размер порций зависит от выбранного рациона — его легко подобрать под снижение, поддержание или набор веса.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="4"/><path d="M5 13h22"/><path d="M11 4v5M21 4v5"/><path d="M11 19h2M15 19h2M19 19h2"/></svg>
+          </div>
+          <span class="feature__num">03</span>
+          <h3 data-i18n="approach.f3.title">Полноценные завтрак, обед и&nbsp;ужин каждый день</h3>
+          <p data-i18n="approach.f3.text">Питание на весь день, а не отдельные блюда. Регулярные приёмы пищи помогают выстроить спокойный режим без перекусов на бегу.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. ПРИМЕР ДНЯ ============ -->
+  <!-- TODO: сверить описание состава блюд с фактическими технологическими картами -->
+  <section class="section section--tint" id="menu">
+    <div class="container">
+      <div class="section__head section__head--row reveal">
+        <div>
+          <p class="eyebrow" data-i18n="menu.eyebrow">Пример дня питания</p>
+          <h2 data-i18n="menu.title">Один день с&nbsp;Plate Mate</h2>
+        </div>
+        <p class="section__lead" data-i18n="menu.lead">Настоящие блюда из нашего меню. Меню и размеры порций зависят от выбранного рациона.</p>
+      </div>
+
+      <div class="dishes">
+        <article class="dish reveal">
+          <div class="dish__photo ph" data-label="images/breakfast.jpg">
+            <img src="images/breakfast.jpg" loading="lazy" data-i18n-attr="alt:menu.d1.name" alt="Творожные маффины с фруктами" onerror="this.parentNode.classList.add('missing')">
+          </div>
+          <span class="dish__meal" data-i18n="menu.breakfast">Завтрак</span>
+          <h3 data-i18n="menu.d1.name">Творожные маффины с фруктами</h3>
+          <p data-i18n="menu.d1.text">Запечённые творожные маффины с соусом и свежие фрукты — мандарин и питахайя. Белок с утра и естественная сладость фруктов.</p>
+        </article>
+        <article class="dish dish--mid reveal">
+          <div class="dish__photo ph" data-motion style="--r:2deg;--rot:-2.5deg;--shift:28px" data-label="images/lunch.jpg">
+            <img src="images/lunch.jpg" loading="lazy" data-i18n-attr="alt:menu.d2.name" alt="Митболы из телятины с булгуром" onerror="this.parentNode.classList.add('missing')">
+          </div>
+          <span class="dish__meal" data-i18n="menu.lunch">Обед</span>
+          <h3 data-i18n="menu.d2.name">Митболы из телятины с булгуром</h3>
+          <p data-i18n="menu.d2.text">Митболы из телятины в соусе, булгур с горошком, кукурузой и морковью, томаты черри с мягким сыром и песто. Сытный обед: белок и сложные углеводы.</p>
+        </article>
+        <article class="dish reveal">
+          <div class="dish__photo ph" data-label="images/dinner.jpg">
+            <img src="images/dinner.jpg" loading="lazy" data-i18n-attr="alt:menu.d3.name" alt="Запечённый сибас с киноа" onerror="this.parentNode.classList.add('missing')">
+          </div>
+          <span class="dish__meal" data-i18n="menu.dinner">Ужин</span>
+          <h3 data-i18n="menu.d3.name">Запечённый сибас с киноа</h3>
+          <p data-i18n="menu.d3.text">Запечённое филе сибаса с лимоном, киноа и овощи соломкой — морковь, перец, спаржа. Лёгкий ужин с рыбным белком.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. КАЛЬКУЛЯТОР ============ -->
+  <section class="section" id="calculator">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow" data-i18n="calc.eyebrow">Калькулятор калорийности</p>
+        <h2 data-i18n="calc.title">Подберите рацион под свою цель</h2>
+        <p class="section__lead" data-i18n="calc.lead">Без регистрации и телефона. Расчёт — ориентир: окончательный выбор можно обсудить с менеджером.</p>
+      </div>
+
+      <div class="calc reveal">
+        <form class="calc__form" id="calcForm" novalidate>
+          <fieldset class="field">
+            <legend data-i18n="calc.sex">Пол</legend>
+            <div class="seg">
+              <label><input type="radio" name="sex" value="f" checked><span data-i18n="calc.female">Женщина</span></label>
+              <label><input type="radio" name="sex" value="m"><span data-i18n="calc.male">Мужчина</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field__label" data-i18n="calc.age">Возраст</span>
+              <span class="input"><input type="number" name="age" inputmode="numeric" min="18" max="80" placeholder="35"><em data-i18n="calc.years">лет</em></span>
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="calc.height">Рост</span>
+              <span class="input"><input type="number" name="height" inputmode="numeric" min="130" max="220" placeholder="170"><em data-i18n="calc.cm">см</em></span>
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="calc.weight">Вес</span>
+              <span class="input"><input type="number" name="weight" inputmode="decimal" min="35" max="250" step="0.1" placeholder="70"><em data-i18n="calc.kg">кг</em></span>
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="field__label" data-i18n="calc.activity">Активность</span>
+            <span class="select">
+              <select name="activity">
+                <option value="1.2" data-i18n="calc.act1">Минимальная — сидячая работа, без тренировок</option>
+                <option value="1.375" data-i18n="calc.act2">Лёгкая — 1–3 тренировки в неделю</option>
+                <option value="1.55" selected data-i18n="calc.act3">Средняя — 3–5 тренировок в неделю</option>
+                <option value="1.725" data-i18n="calc.act4">Высокая — 6–7 тренировок в неделю</option>
+                <option value="1.9" data-i18n="calc.act5">Очень высокая — физический труд и спорт</option>
+              </select>
+            </span>
+          </label>
+
+          <fieldset class="field">
+            <legend data-i18n="calc.goal">Цель</legend>
+            <div class="seg seg--3">
+              <label><input type="radio" name="goal" value="lose"><span data-i18n="calc.lose">Снизить вес</span></label>
+              <label><input type="radio" name="goal" value="keep" checked><span data-i18n="calc.keep">Сохранить</span></label>
+              <label><input type="radio" name="goal" value="gain"><span data-i18n="calc.gain">Набрать</span></label>
+            </div>
+          </fieldset>
+
+          <p class="calc__error" id="calcError" role="alert" hidden data-i18n="calc.error">Проверьте данные: возраст 18–80 лет, рост 130–220 см, вес 35–250 кг.</p>
+          <button class="btn btn--primary btn--lg btn--block" type="submit" data-i18n="calc.submit">Рассчитать</button>
+        </form>
+
+        <div class="calc__result" id="calcResult" aria-live="polite">
+          <!-- До расчёта -->
+          <div class="result-head" id="resultEmpty">
+            <p class="result__label" data-i18n="calc.scaleEyebrow">Наши рационы</p>
+            <p class="result-head__title" data-i18n="calc.scaleTitle">Пять рационов — от&nbsp;1250 до&nbsp;2200&nbsp;ккал</p>
+          </div>
+
+          <!-- После расчёта -->
+          <div class="result-head" id="resultFull" hidden>
+            <p class="result__label" data-i18n="calc.yourNeed">Ваш ориентир</p>
+            <p class="result__value">≈&nbsp;<strong id="rKcal">0</strong> <span data-i18n="calc.kcalDay">ккал/день</span></p>
+            <dl class="result__steps">
+              <div><dt data-i18n="calc.bmr">Базовый обмен</dt><dd id="rBmr"></dd></div>
+              <div><dt data-i18n="calc.withAct">С активностью</dt><dd id="rTdee"></dd></div>
+              <div><dt data-i18n="calc.withGoal">С учётом цели</dt><dd id="rGoal"></dd></div>
+            </dl>
+          </div>
+
+          <!-- Шкала рационов: строки строит скрипт -->
+          <div class="scale" id="scale">
+            <div class="scale__rail" aria-hidden="true"><span class="scale__fill" id="scaleFill"></span><span class="scale__marker" id="scaleMarker" hidden></span></div>
+            <ul class="scale__list" id="scaleList"></ul>
+          </div>
+
+          <p class="result__hint" id="scaleHint" data-i18n="calc.empty">Заполните форму — и мы отметим на шкале ваш ориентир и подходящий рацион.</p>
+
+          <div class="result__plan" id="resultPlan" hidden>
+            <p id="rText"></p>
+            <button class="btn btn--accent btn--lg btn--block" type="button" id="rChoose"></button>
+            <p class="result__note" data-i18n="calc.note">Расчёт по формуле Миффлина — Сан Жеора с поправками на активность и цель. Это приблизительный ориентир, а не медицинская рекомендация.</p>
+          </div>
+
+          <p class="result__privacy">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            <span data-i18n="calc.privacy">Данные никуда не отправляются — расчёт идёт прямо в браузере</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. РАЦИОНЫ И СТОИМОСТЬ ============ -->
+  <section class="section section--tint" id="plans">
+    <div class="container">
+      <div class="section__head section__head--row reveal">
+        <div>
+          <p class="eyebrow" data-i18n="plans.eyebrow">Рационы и стоимость</p>
+          <h2 data-i18n="plans.title">Выберите калорийность и&nbsp;срок</h2>
+        </div>
+        <p class="section__lead" data-i18n="plans.lead">Цена указана за полный день: завтрак, обед и ужин. Доставка бесплатная.</p>
+      </div>
+
+      <div class="durations reveal" id="durations" role="radiogroup" data-i18n-attr="aria-label:plans.durationLabel" aria-label="Срок"></div>
+
+      <div class="plans" id="plansGrid" role="list"></div>
+
+      <!-- Подсказка для тех, кто не знает свою калорийность -->
+      <div class="plans-help reveal">
+        <div class="plans-help__icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M12.5 12.5a3.5 3.5 0 1 1 5 3.2c-1 .5-1.5 1.2-1.5 2.3v.5"/><circle cx="16" cy="22.5" r=".6" fill="currentColor"/></svg>
+        </div>
+        <div class="plans-help__text">
+          <p class="plans-help__title" data-i18n="plans.helpTitle">Не знаете, какая калорийность вам подходит?</p>
+          <p data-i18n="plans.helpText">Калькулятор подскажет ориентир за минуту — по росту, весу, активности и цели. Без регистрации и телефона.</p>
+        </div>
+        <a class="btn btn--primary plans-help__btn" href="#calculator" data-to-calc data-i18n="plans.helpBtn">Подобрать калорийность</a>
+      </div>
+      <noscript>
+        <p class="plans__note">1250 ккал — 750 ฿ · 1500 ккал — 850 ฿ · 1800 ккал — 950 ฿ · 2000 ккал — 1050 ฿ · 2200 ккал — 1150 ฿ в день.</p>
+      </noscript>
+
+      <p class="plans__note" data-i18n="plans.note">БЖУ указаны диапазоном на день: точные значения зависят от меню конкретного дня. Скидки за срок не суммируются. Дату начала и особенности питания согласует менеджер.</p>
+    </div>
+  </section>
+
+  <!-- ============ 6. ДОСТАВКА И ВОПРОСЫ ============ -->
+  <section class="section" id="delivery">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow" data-i18n="delivery.eyebrow">Доставка</p>
+        <h2 data-i18n="delivery.title">Как всё устроено</h2>
+      </div>
+
+      <div class="delivery">
+        <ol class="steps reveal">
+          <li>
+            <span class="steps__n">1</span>
+            <div><h3 data-i18n="delivery.s1.t">Выберите рацион</h3><p data-i18n="delivery.s1.p">Калорийность и срок — сами или с помощью калькулятора.</p></div>
+          </li>
+          <li>
+            <span class="steps__n">2</span>
+            <div><h3 data-i18n="delivery.s2.t">Напишите менеджеру</h3><p data-i18n="delivery.s2.p">В WhatsApp или Telegram — сообщение с вашим выбором мы подготовим.</p></div>
+          </li>
+          <li>
+            <span class="steps__n">3</span>
+            <div><h3 data-i18n="delivery.s3.t">Согласуйте детали</h3><p data-i18n="delivery.s3.p">Менеджер уточнит дату начала, адрес и особенности питания.</p></div>
+          </li>
+          <li>
+            <span class="steps__n">4</span>
+            <div><h3 data-i18n="delivery.s4.t">Получайте рацион</h3><p data-i18n="delivery.s4.p">Бесплатная доставка по Паттайе раз в два дня.</p></div>
+          </li>
+        </ol>
+
+        <div class="delivery__card reveal">
+          <!-- Иллюстрация: скутер везёт рацион по Паттайе, календарь — доставка через день -->
+          <div class="delivery__art" data-motion style="--r:-2deg;--rot:3deg;--shift:26px">
+            <svg viewBox="0 0 560 340" preserveAspectRatio="xMidYMid slice" role="img" data-i18n-attr="aria-label:delivery.alt" aria-label="Иллюстрация: курьер на скутере везёт рацион по Паттайе">
+              <rect width="560" height="340" fill="#FFE9D8"/>
+              <!-- солнце -->
+              <circle cx="430" cy="82" r="64" fill="#FFD9BD" opacity=".6"/>
+              <circle cx="430" cy="82" r="44" fill="#FFC7A0"/>
+              <!-- город -->
+              <g fill="#F9D3B8">
+                <rect x="128" y="176" width="34" height="96" rx="6"/>
+                <rect x="168" y="146" width="28" height="126" rx="6"/>
+                <rect x="202" y="190" width="40" height="82" rx="6"/>
+                <rect x="250" y="126" width="30" height="146" rx="6"/>
+                <rect x="286" y="168" width="44" height="104" rx="6"/>
+                <rect x="338" y="150" width="26" height="122" rx="6"/>
+                <rect x="370" y="186" width="42" height="86" rx="6"/>
+              </g>
+              <g fill="#FFE9D8" opacity=".8">
+                <rect x="175" y="160" width="6" height="8" rx="1"/><rect x="185" y="160" width="6" height="8" rx="1"/>
+                <rect x="175" y="176" width="6" height="8" rx="1"/><rect x="185" y="176" width="6" height="8" rx="1"/>
+                <rect x="257" y="140" width="6" height="8" rx="1"/><rect x="267" y="140" width="6" height="8" rx="1"/>
+                <rect x="257" y="156" width="6" height="8" rx="1"/><rect x="267" y="156" width="6" height="8" rx="1"/>
+                <rect x="344" y="164" width="6" height="8" rx="1"/><rect x="344" y="180" width="6" height="8" rx="1"/>
+              </g>
+              <!-- море -->
+              <path class="art-wave art-wave--back" fill="#CFE8DE" d="M-60 276 q35 -12 70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 V340 H-60 Z"/>
+              <path class="art-wave" fill="#B5DCCF" d="M-60 292 q35 -10 70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 V340 H-60 Z"/>
+              <!-- пальмы -->
+              <g fill="none" stroke="#2A7550" stroke-linecap="round">
+                <path d="M72 286 Q66 240 82 206" stroke-width="7"/>
+                <path d="M488 286 Q496 244 482 212" stroke-width="7"/>
+              </g>
+              <g fill="#2A7550">
+                <path d="M82 206 q-30 -14 -44 6 q24 -10 44 -6Z"/><path d="M82 206 q-18 -30 -44 -26 q26 6 44 26Z"/>
+                <path d="M82 206 q20 -30 46 -22 q-28 2 -46 22Z"/><path d="M82 206 q34 -8 42 16 q-18 -14 -42 -16Z"/>
+                <path d="M482 212 q-30 -14 -44 6 q24 -10 44 -6Z"/><path d="M482 212 q-18 -30 -44 -26 q26 6 44 26Z"/>
+                <path d="M482 212 q20 -30 46 -22 q-28 2 -46 22Z"/><path d="M482 212 q34 -8 42 16 q-18 -14 -42 -16Z"/>
+              </g>
+              <!-- календарь: доставка каждый второй день -->
+              <g transform="translate(112 34)">
+                <rect width="168" height="46" rx="14" fill="#fff"/>
+                <g fill="none" stroke="#1F5C3E" stroke-width="2">
+                  <circle cx="21" cy="23" r="7" fill="#F47A2A" stroke="none"/>
+                  <circle cx="42" cy="23" r="6" opacity=".35"/>
+                  <circle cx="63" cy="23" r="7" fill="#F47A2A" stroke="none"/>
+                  <circle cx="84" cy="23" r="6" opacity=".35"/>
+                  <circle cx="105" cy="23" r="7" fill="#F47A2A" stroke="none"/>
+                  <circle cx="126" cy="23" r="6" opacity=".35"/>
+                  <circle cx="147" cy="23" r="7" fill="#F47A2A" stroke="none"/>
+                </g>
+              </g>
+              <!-- дорога -->
+              <path id="artRoute" d="M95 230 C170 160 240 262 320 208 S430 150 465 190" fill="none" stroke="#FFF7F0" stroke-width="20" stroke-linecap="round"/>
+              <path class="art-dash" d="M95 230 C170 160 240 262 320 208 S430 150 465 190" fill="none" stroke="#F47A2A" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 12"/>
+              <!-- метка кухни -->
+              <g transform="translate(95 230)">
+                <path d="M0 0 C-12 -14 -18 -22 -18 -32 A18 18 0 1 1 18 -32 C18 -22 12 -14 0 0Z" fill="#1F5C3E"/>
+                <circle cx="0" cy="-32" r="9" fill="#fff"/>
+                <circle cx="0" cy="-32" r="4.5" fill="none" stroke="#1F5C3E" stroke-width="1.6"/>
+              </g>
+              <!-- метка дома -->
+              <g transform="translate(465 190)">
+                <path d="M0 0 C-12 -14 -18 -22 -18 -32 A18 18 0 1 1 18 -32 C18 -22 12 -14 0 0Z" fill="#F47A2A"/>
+                <path d="M-8 -30 L0 -38 L8 -30 V-24 H-8 Z" fill="#fff"/>
+              </g>
+              <!-- скутер -->
+              <g>
+                <animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#artRoute"/></animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.9;1" dur="7s" repeatCount="indefinite"/>
+                <g transform="scale(1.35)">
+                <g transform="translate(0 -4)">
+                  <animateTransform attributeName="transform" type="translate" values="0 -4;0 -5.5;0 -4" dur=".45s" repeatCount="indefinite"/>
+                  <g stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".9">
+                    <path d="M-54 -34 H-42"/><path d="M-58 -24 H-44"/>
+                  </g>
+                  <rect x="-38" y="-54" width="26" height="24" rx="4" fill="#F47A2A"/>
+                  <rect x="-38" y="-48" width="26" height="3" fill="#E0661A"/>
+                  <circle cx="-25" cy="-38" r="4" fill="#fff"/>
+                  <path d="M-34 -12 Q-34 -28 -18 -28 H0 L12 -14 Z" fill="#1F5C3E"/>
+                  <path d="M10 -14 L20 -42" stroke="#1F5C3E" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M16 -46 H28" stroke="#17251D" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M12 -12 Q26 -24 34 -12 Z" fill="#1F5C3E"/>
+                  <circle cx="31" cy="-34" r="2.6" fill="#FFD86B"/>
+                  <path d="M-8 -28 L10 -16" stroke="#17251D" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M-14 -28 Q-12 -52 2 -54 L8 -50 Q0 -40 -2 -28 Z" fill="#2A7550"/>
+                  <path d="M2 -48 L20 -45" stroke="#2A7550" stroke-width="5" stroke-linecap="round"/>
+                  <circle cx="5" cy="-62" r="8" fill="#F2C9A5"/>
+                  <path d="M-4 -63 A9.5 9.5 0 0 1 14 -63 Z" fill="#F47A2A"/>
+                  <circle cx="-22" cy="-9" r="9" fill="#17251D"/><circle cx="-22" cy="-9" r="3.5" fill="#FFE9D8"/>
+                  <circle cx="24" cy="-9" r="9" fill="#17251D"/><circle cx="24" cy="-9" r="3.5" fill="#FFE9D8"/>
+                </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="delivery__info">
+            <p class="delivery__big" data-i18n="delivery.free">Бесплатно</p>
+            <p data-i18n="delivery.freeText">Привозим рацион раз в два дня по Паттайе. Дату старта и удобный адрес согласуем с менеджером.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TODO: ответы в FAQ сверить с фактическими правилами бизнеса (хранение, разогрев, аллергии) -->
+      <div class="faq" id="faq">
+        <h2 class="faq__title reveal" data-i18n="faq.title">Частые вопросы</h2>
+        <div class="faq__list reveal">
+          <details>
+            <summary data-i18n="faq.q1">Из чего состоят блюда?</summary>
+            <p data-i18n="faq.a1">Пример дня — творожные маффины с фруктами, митболы из телятины с булгуром и запечённый сибас с киноа. Основа блюд — творог, курица, утка, телятина и рыба; свинину мы не используем. Полный состав каждого блюда менеджер пришлёт до начала заказа. Меню и размеры порций зависят от выбранного рациона.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q2">Можно ли учесть аллергию или продукты, которые я не ем?</summary>
+            <p data-i18n="faq.a2">Обязательно сообщите менеджеру об аллергиях и ограничениях до начала заказа. Он расскажет, какие ингредиенты входят в блюда, и честно скажет, можно ли подобрать для вас подходящий вариант.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q3">Как хранить рацион?</summary>
+            <p data-i18n="faq.a3">Уберите рацион в холодильник сразу после получения. Условия и сроки хранения указаны на упаковке — если что-то непонятно, менеджер подскажет.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q4">Как разогревать блюда?</summary>
+            <p data-i18n="faq.a4">Горячие блюда достаточно разогреть в микроволновой печи. Рекомендации по разогреву указаны на упаковке.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q5">Как выбрать калорийность?</summary>
+            <p data-i18n="faq.a5">Воспользуйтесь <a href="#calculator">калькулятором</a> — он покажет приблизительный ориентир и ближайший рацион. Можно выбрать пакет и самостоятельно, а если сомневаетесь — менеджер поможет определиться.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q6">У меня повышенный холестерин. Подойдёт ли мне рацион?</summary>
+            <p data-i18n="faq.a6">Рационы Plate Mate — сбалансированное ежедневное питание, а не лечебная диета, и мы не обещаем изменения анализов. Если у вас есть рекомендации врача, расскажите о них менеджеру: мы покажем состав блюд, чтобы вы могли принять решение вместе с врачом.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q7">Как часто вы доставляете?</summary>
+            <p data-i18n="faq.a7">Раз в два дня, бесплатно по Паттайе. Дату первой доставки и адрес согласует менеджер.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. ФИНАЛЬНЫЙ ПРИЗЫВ ============ -->
+  <section class="section order-section" id="order">
+    <div class="container">
+      <div class="order reveal">
+        <div class="order__summary">
+          <p class="eyebrow eyebrow--light" data-i18n="order.eyebrow">Ваш выбор</p>
+          <h2 data-i18n="order.title">Остался один шаг — написать менеджеру</h2>
+          <dl class="summary">
+            <div><dt data-i18n="order.plan">Рацион</dt><dd id="sPlan"></dd></div>
+            <div><dt data-i18n="order.duration">Срок</dt><dd id="sDays"></dd></div>
+            <div><dt data-i18n="order.perDay">Цена за день</dt><dd id="sPerDay"></dd></div>
+            <div class="summary__total"><dt data-i18n="order.total">Итого</dt><dd id="sTotal"></dd></div>
+          </dl>
+          <a class="order__change" href="#plans" data-i18n="order.change">Изменить выбор</a>
+        </div>
+
+        <div class="order__message">
+          <label class="order__label" for="orderMessage" data-i18n="order.msgLabel">Сообщение для менеджера — проверьте и отправьте сами</label>
+          <textarea id="orderMessage" rows="8"></textarea>
+          <div class="order__buttons">
+            <a class="btn btn--wa btn--lg" id="btnWa" href="https://wa.me/66627804528" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a class="btn btn--tg btn--lg" id="btnTg" href="https://t.me/okhealthyfood" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.4 3.6 2.9 10.8c-1.3.5-1.2 1.3-.2 1.6l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.3-.5-1.9-1.4-1.5ZM9 13.6l9-5.7c.4-.3.8-.1.5.2l-7.5 6.8-.3 3.2L9 13.6Z"/></svg>
+              <span>Telegram</span>
+            </a>
+          </div>
+          <button class="order__copy" type="button" id="btnCopy" data-i18n="order.copy">Скопировать текст сообщения</button>
+          <p class="order__hint" data-i18n="order.hint">В WhatsApp и Telegram сообщение подставится автоматически — останется проверить его и нажать «Отправить».</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ ФУТЕР ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="logo logo--footer" href="#top" aria-label="Plate Mate">
+        <img src="images/logo.svg" alt="Plate Mate" loading="lazy" onerror="this.parentNode.classList.add('logo--text')">
+        <span class="logo__text">Plate<b>Mate</b></span>
+      </a>
+      <p class="footer__about" data-i18n="footer.about">Готовые рационы питания с доставкой. Паттайя, Таиланд.</p>
+    </div>
+    <div class="footer__contacts">
+      <p class="footer__h" data-i18n="footer.contacts">Контакты</p>
+      <a href="tel:+66627804528">+66 62 780 4528</a>
+      <a href="https://wa.me/66627804528" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/okhealthyfood" target="_blank" rel="noopener">Telegram</a>
+    </div>
+    <div class="footer__privacy">
+      <p class="footer__h" data-i18n="footer.dataTitle">О данных калькулятора</p>
+      <p data-i18n="footer.data">Возраст, рост и вес обрабатываются только в вашем браузере и никуда не отправляются. Мы получаем информацию о заказе, только когда вы сами отправляете сообщение менеджеру.</p>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2026 Plate Mate</span>
+    <span data-i18n="footer.disclaimer">Рационы Plate Mate не являются лечебным питанием и не заменяют консультацию врача.</span>
+  </div>
+</footer>
+
+<!-- Мобильная панель выбранного пакета -->
+<div class="sticky-bar" id="stickyBar" aria-hidden="true">
+  <div class="sticky-bar__info"><strong id="barPlan"></strong><span id="barTotal"></span></div>
+  <a class="btn btn--accent" href="#order" data-i18n="bar.cta" tabindex="-1">Оформить</a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
