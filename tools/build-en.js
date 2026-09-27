@@ -1,12 +1,25 @@
 // Собирает английскую версию сайта en/index.html из русской index.html.
 // Тексты берутся из tools/i18n-en.js по ключам data-i18n и data-i18n-attr.
+// Заодно проставляет в index.html версии стилей и скрипта (?v=хеш), чтобы браузеры
+// не брали из кэша старые файлы после обновления сайта.
 // Запуск из корня проекта: node tools/build-en.js
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const root = path.join(__dirname, '..');
 const EN = require('./i18n-en.js');
-let html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const indexPath = path.join(root, 'index.html');
+let html = fs.readFileSync(indexPath, 'utf8');
+
+// 0. Версии файлов: хеш содержимого меняется при каждой правке
+for (const file of ['assets/styles.css', 'assets/app.js']) {
+  const hash = crypto.createHash('md5').update(fs.readFileSync(path.join(root, file))).digest('hex').slice(0, 8);
+  const re = new RegExp(`(["/])${file.replace(/[./]/g, '\\$&')}(\\?v=\\w+)?"`, 'g');
+  if (!re.test(html)) { console.error(`Не найдена ссылка на ${file} в index.html`); process.exit(1); }
+  html = html.replace(re, `$1${file}?v=${hash}"`);
+}
+fs.writeFileSync(indexPath, html);
 
 const missing = new Set();
 const used = new Set();
