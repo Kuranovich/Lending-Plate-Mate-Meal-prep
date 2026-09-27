@@ -27,6 +27,7 @@
   --gutter: 24px;
   --header-h: 76px;
   --ease: cubic-bezier(.2, .7, .2, 1);
+  --consent-h: 0px; /* высота баннера согласия, пока он открыт */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -534,13 +535,39 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .footer__contacts { display: flex; flex-direction: column; gap: 8px; }
 .footer__contacts a { text-decoration: none; font-weight: 500; color: var(--white); width: fit-content; }
 .footer__contacts a:hover { color: #FFC7A0; }
-.footer__privacy p:last-child { font-size: 14px; line-height: 1.6; }
+.footer__privacy p:not(.footer__h) { font-size: 14px; line-height: 1.6; }
 .footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .1); font-size: 13px; color: #8C9A91; }
+.footer__privacy p:not(.footer__h) + p { margin-top: 10px; }
+.footer__privacy a { color: #FFC7A0; }
+.footer__link { padding: 0; border: 0; background: none; font-size: 13px; color: #C9D2CC; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer__link:hover { color: var(--white); }
+
+/* ---------- Баннер согласия на Meta Pixel ---------- */
+body.has-consent { padding-bottom: var(--consent-h); }
+.consent {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--ink); color: #D5DDD8; box-shadow: 0 -16px 40px -24px rgba(0, 0, 0, .55);
+}
+.consent__inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding-top: 18px; padding-bottom: 18px; }
+.consent__text { max-width: 760px; font-size: 14px; line-height: 1.5; }
+.consent__title { margin-bottom: 4px; font-size: 16px; font-weight: 700; color: var(--white); }
+.consent__text a { color: #FFC7A0; text-underline-offset: 3px; }
+.consent__status { margin-top: 6px; font-weight: 600; color: #FFC7A0; }
+.consent__buttons { flex: none; display: flex; gap: 10px; }
+/* обе кнопки намеренно одинаковые — выбор равнозначный */
+.consent__btn {
+  min-width: 132px; min-height: 48px; padding: 0 24px; border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, .75); background: transparent; color: var(--white);
+  font-size: 15px; font-weight: 600; cursor: pointer; transition: background-color .2s, color .2s;
+}
+.consent__btn:hover { background: var(--white); color: var(--ink); }
+.consent__btn:focus-visible { outline-color: #FFC7A0; }
 
 /* ---------- Мобильная панель и уведомление ---------- */
 .sticky-bar { display: none; }
 .toast {
-  position: fixed; left: 50%; bottom: 24px; z-index: 80; max-width: calc(100% - 32px);
+  position: fixed; left: 50%; bottom: calc(24px + var(--consent-h)); z-index: 80; max-width: calc(100% - 32px);
   padding: 14px 22px; border-radius: 999px; background: var(--ink); color: var(--white);
   font-size: 15px; font-weight: 500; text-align: center;
   opacity: 0; transform: translate(-50%, 20px); pointer-events: none; transition: opacity .3s, transform .3s var(--ease);
@@ -670,7 +697,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .footer__grid { grid-template-columns: 1fr; gap: 32px; }
 
   .sticky-bar {
-    position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 60;
+    position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom) + var(--consent-h)); z-index: 60;
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     padding: 10px 10px 10px 20px; border-radius: 999px; background: var(--ink); color: var(--white);
     box-shadow: 0 16px 40px -12px rgba(0,0,0,.45);
@@ -681,7 +708,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .sticky-bar__info strong { font-size: 15px; }
   .sticky-bar__info span { font-size: 13px; color: #C9D2CC; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sticky-bar .btn { min-height: 48px; padding: 0 22px; flex: none; }
-  .toast { bottom: 88px; }
+  .toast { bottom: calc(88px + var(--consent-h)); }
+  .consent__inner { flex-direction: column; align-items: stretch; gap: 14px; padding-top: 16px; padding-bottom: 16px; }
+  .consent__text { font-size: 13px; }
+  .consent__title { font-size: 15px; }
+  .consent__buttons { display: grid; grid-template-columns: 1fr 1fr; }
+  .consent__btn { min-width: 0; padding: 0 12px; }
 }
 
 @media (max-width: 380px) {

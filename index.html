@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css?v=e80cd91b">
+  <link rel="stylesheet" href="assets/styles.css?v=3b3f16dc">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -555,14 +555,16 @@
       <a href="https://wa.me/66627804528" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://t.me/okhealthyfood" target="_blank" rel="noopener">Telegram</a>
     </div>
-    <div class="footer__privacy">
-      <p class="footer__h" data-i18n="footer.dataTitle">О данных калькулятора</p>
+    <div class="footer__privacy" id="privacy">
+      <p class="footer__h" data-i18n="footer.dataTitle">Конфиденциальность</p>
       <p data-i18n="footer.data">Возраст, рост и вес обрабатываются только в вашем браузере и никуда не отправляются. Мы получаем информацию о заказе, только когда вы сами отправляете сообщение менеджеру.</p>
+      <p data-consent-ui hidden data-i18n="footer.pixel">Meta Pixel. Только если вы нажмёте «Принять» в окне согласия, сайт загрузит Meta Pixel — инструмент компании Meta для оценки эффективности рекламы. Он передаёт в Meta факт просмотра страницы: её адрес, технические данные браузера и устройства, включая IP-адрес, и файлы cookie Meta. Данные калькулятора и текст сообщения менеджеру не передаются. Если вы отказались, пиксель не загружается. Подробнее — в <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Политике конфиденциальности Meta</a>.</p>
     </div>
   </div>
   <div class="container footer__bottom">
     <span>© 2026 Plate Mate</span>
     <span data-i18n="footer.disclaimer">Рационы Plate Mate не являются лечебным питанием и не заменяют консультацию врача.</span>
+    <button class="footer__link" type="button" data-consent-ui data-consent-open hidden data-i18n="footer.privacySettings">Настройки конфиденциальности</button>
   </div>
 </footer>
 
@@ -574,6 +576,25 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<!-- Согласие на Meta Pixel: показывает assets/consent.js (если в meta-pixel.js ENABLED = true) -->
+<section class="consent" id="consent" aria-labelledby="consentTitle" hidden>
+  <div class="container consent__inner">
+    <div class="consent__text">
+      <p class="consent__title" id="consentTitle" data-i18n="consent.title">Реклама и конфиденциальность</p>
+      <p data-i18n="consent.text">С вашего согласия мы используем Meta Pixel для оценки эффективности рекламы. Данные калькулятора и сообщения менеджеру не передаются. <a href="#privacy">Подробнее</a></p>
+      <p class="consent__status" data-consent-status="granted" hidden data-i18n="consent.statusGranted">Сейчас: вы разрешили Meta Pixel.</p>
+      <p class="consent__status" data-consent-status="denied" hidden data-i18n="consent.statusDenied">Сейчас: вы отказались от Meta Pixel.</p>
+    </div>
+    <div class="consent__buttons">
+      <button class="consent__btn" type="button" data-consent="denied" data-i18n="consent.deny">Отклонить</button>
+      <button class="consent__btn" type="button" data-consent="granted" data-i18n="consent.accept">Принять</button>
+    </div>
+  </div>
+</section>
+
+<!-- Meta Pixel: загружается только после согласия посетителя — assets/meta-pixel.js, assets/consent.js -->
+<script src="assets/meta-pixel.js?v=344c5059"></script>
+<script src="assets/consent.js?v=aa86bfef"></script>
 <script src="assets/app.js?v=b2d2b98f"></script>
 </body>
 </html>

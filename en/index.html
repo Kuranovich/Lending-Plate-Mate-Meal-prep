@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/styles.css?v=e80cd91b">
+  <link rel="stylesheet" href="../assets/styles.css?v=3b3f16dc">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -556,14 +556,16 @@
       <a href="https://wa.me/66627804528" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://t.me/okhealthyfood" target="_blank" rel="noopener">Telegram</a>
     </div>
-    <div class="footer__privacy">
-      <p class="footer__h" data-i18n="footer.dataTitle">About calculator data</p>
+    <div class="footer__privacy" id="privacy">
+      <p class="footer__h" data-i18n="footer.dataTitle">Privacy</p>
       <p data-i18n="footer.data">Age, height and weight are processed only in your browser and are never sent anywhere. We receive your order details only when you send a message to the manager yourself.</p>
+      <p data-consent-ui hidden data-i18n="footer.pixel">Meta Pixel. Only if you click “Accept” in the consent banner does the site load Meta Pixel — a tool from Meta for measuring ad effectiveness. It sends Meta the fact that you viewed the page: its address, technical data about your browser and device, including your IP address, and Meta cookies. Calculator data and your message to our manager are not shared. If you decline, the pixel is not loaded. Learn more in the <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta Privacy Policy</a>.</p>
     </div>
   </div>
   <div class="container footer__bottom">
     <span>© 2026 Plate Mate</span>
     <span data-i18n="footer.disclaimer">Plate Mate meal plans are not a therapeutic diet and do not replace a doctor’s advice.</span>
+    <button class="footer__link" type="button" data-consent-ui data-consent-open hidden data-i18n="footer.privacySettings">Privacy settings</button>
   </div>
 </footer>
 
@@ -575,6 +577,25 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<!-- Согласие на Meta Pixel: показывает assets/consent.js (если в meta-pixel.js ENABLED = true) -->
+<section class="consent" id="consent" aria-labelledby="consentTitle" hidden>
+  <div class="container consent__inner">
+    <div class="consent__text">
+      <p class="consent__title" id="consentTitle" data-i18n="consent.title">Ads and privacy</p>
+      <p data-i18n="consent.text">With your consent, we use Meta Pixel to measure the effectiveness of our ads. Calculator data and messages to our manager are not shared. <a href="#privacy">Learn more</a></p>
+      <p class="consent__status" data-consent-status="granted" hidden data-i18n="consent.statusGranted">Currently: you have allowed Meta Pixel.</p>
+      <p class="consent__status" data-consent-status="denied" hidden data-i18n="consent.statusDenied">Currently: you have declined Meta Pixel.</p>
+    </div>
+    <div class="consent__buttons">
+      <button class="consent__btn" type="button" data-consent="denied" data-i18n="consent.deny">Decline</button>
+      <button class="consent__btn" type="button" data-consent="granted" data-i18n="consent.accept">Accept</button>
+    </div>
+  </div>
+</section>
+
+<!-- Meta Pixel: загружается только после согласия посетителя — assets/meta-pixel.js, assets/consent.js -->
+<script src="../assets/meta-pixel.js?v=344c5059"></script>
+<script src="../assets/consent.js?v=aa86bfef"></script>
 <script src="../assets/app.js?v=b2d2b98f"></script>
 </body>
 </html>

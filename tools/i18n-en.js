@@ -145,8 +145,16 @@ module.exports = {
 
   'footer.about': 'Ready-made meal plans with delivery. Pattaya, Thailand.',
   'footer.contacts': 'Contacts',
-  'footer.dataTitle': 'About calculator data',
+  'footer.dataTitle': "Privacy",
   'footer.data': 'Age, height and weight are processed only in your browser and are never sent anywhere. We receive your order details only when you send a message to the manager yourself.',
   'footer.disclaimer': 'Plate Mate meal plans are not a therapeutic diet and do not replace a doctor’s advice.',
   'bar.cta': 'Order',
+  'footer.pixel': "Meta Pixel. Only if you click “Accept” in the consent banner does the site load Meta Pixel — a tool from Meta for measuring ad effectiveness. It sends Meta the fact that you viewed the page: its address, technical data about your browser and device, including your IP address, and Meta cookies. Calculator data and your message to our manager are not shared. If you decline, the pixel is not loaded. Learn more in the <a href=\"https://www.facebook.com/privacy/policy/\" target=\"_blank\" rel=\"noopener\">Meta Privacy Policy</a>.",
+  'footer.privacySettings': "Privacy settings",
+  'consent.title': "Ads and privacy",
+  'consent.text': "With your consent, we use Meta Pixel to measure the effectiveness of our ads. Calculator data and messages to our manager are not shared. <a href=\"#privacy\">Learn more</a>",
+  'consent.statusGranted': "Currently: you have allowed Meta Pixel.",
+  'consent.statusDenied': "Currently: you have declined Meta Pixel.",
+  'consent.deny': "Decline",
+  'consent.accept': "Accept",
 };

@@ -13,7 +13,7 @@ const indexPath = path.join(root, 'index.html');
 let html = fs.readFileSync(indexPath, 'utf8');
 
 // 0. Версии файлов: хеш содержимого меняется при каждой правке
-for (const file of ['assets/styles.css', 'assets/app.js']) {
+for (const file of ['assets/styles.css', 'assets/meta-pixel.js', 'assets/consent.js', 'assets/app.js']) {
   const hash = crypto.createHash('md5').update(fs.readFileSync(path.join(root, file))).digest('hex').slice(0, 8);
   const re = new RegExp(`(["/])${file.replace(/[./]/g, '\\$&')}(\\?v=\\w+)?"`, 'g');
   if (!re.test(html)) { console.error(`Не найдена ссылка на ${file} в index.html`); process.exit(1); }
