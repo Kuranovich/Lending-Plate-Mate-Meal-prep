@@ -26,152 +26,9 @@ const CONFIG = {
   rangeTolerance: 100, // насколько ориентир может выходить за границы ассортимента
 };
 
-/* ---------- Переводы ----------
-   Русский текст берётся прямо из HTML, здесь — английский
-   и строки, которые собираются в скрипте. */
-const EN = {
-  'meta.title': 'Plate Mate — daily meal plans delivered in Pattaya',
-  'meta.description': 'Ready-made daily meal plans: breakfast, lunch and dinner with clear calories and macros. Five calorie options, free delivery in Pattaya every two days.',
-  'nav.label': 'Page navigation',
-  'nav.open': 'Open menu',
-  'nav.approach': 'Approach',
-  'nav.menu': 'Menu',
-  'nav.calc': 'Calculator',
-  'nav.plans': 'Pricing',
-  'nav.delivery': 'Delivery',
-  'nav.faq': 'FAQ',
-  'cta.choose': 'Choose a plan',
-
-  'hero.eyebrow': 'Meal plan delivery · Pattaya',
-  'hero.title': 'Taking care of yourself starts with everyday food',
-  'hero.lead': 'Ready-made daily meal plans — breakfast, lunch and dinner — with clear calories and macros. Five calorie options and free delivery in Pattaya every two days.',
-  'hero.btnCalc': 'Find my plan',
-  'hero.btnTrial': 'Try 2 days −30%',
-  'hero.fact1': 'kcal a day — five options',
-  'hero.fact2': 'meals every day',
-  'hero.fact3n': '0&nbsp;฿',
-  'hero.fact3': 'delivery every two days',
-  'hero.alt': 'Salmon with asparagus, shrimp salad and shrimp pasta',
-  'hero.chipFrom': 'from',
-  'hero.chipDay': 'a day',
-
-  'approach.eyebrow': 'Our approach',
-  'approach.title': 'The benefit is in the ingredients, portions and routine',
-  'approach.lead': 'We don’t promise miracles. We make eating well every day simple: clear ingredients, balanced portions and three meals a day.',
-  'approach.f1.title': 'Protein and clear macro targets',
-  'approach.f1.text': 'Every plan lists calories, protein, fat and carbs. Our dishes are built around protein sources — cottage cheese, chicken, duck, veal and fish. We don’t use pork. You know what you eat without counting or weighing.',
-  'approach.f2.title': 'Balanced portions and five calorie options',
-  'approach.f2.text': 'From 1250 to 2200 kcal a day. Portion sizes depend on the plan, so it’s easy to match your goal — losing, maintaining or gaining weight.',
-  'approach.f3.title': 'Full breakfast, lunch and dinner every day',
-  'approach.f3.text': 'Food for the whole day, not separate dishes. Regular meals help you build a calm routine without snacking on the go.',
-
-  'menu.eyebrow': 'A sample day',
-  'menu.title': 'One day with Plate Mate',
-  'menu.lead': 'Real dishes from our menu. The menu and portion sizes depend on the plan you choose.',
-  'menu.breakfast': 'Breakfast',
-  'menu.lunch': 'Lunch',
-  'menu.dinner': 'Dinner',
-  'menu.d1.name': 'Cottage cheese muffins with fruit',
-  'menu.d1.text': 'Baked cottage cheese muffins with sauce and fresh fruit — mandarin and dragon fruit. Protein in the morning and the natural sweetness of fruit.',
-  'menu.d2.name': 'Veal meatballs with bulgur',
-  'menu.d2.text': 'Veal meatballs in sauce, bulgur with peas, corn and carrots, cherry tomatoes with soft cheese and pesto. A filling lunch with protein and complex carbs.',
-  'menu.d3.name': 'Baked sea bass with quinoa',
-  'menu.d3.text': 'Baked sea bass fillet with lemon, quinoa and julienned vegetables — carrot, pepper, asparagus. A light dinner with fish protein.',
-
-  'calc.eyebrow': 'Calorie calculator',
-  'calc.title': 'Find a plan for your goal',
-  'calc.lead': 'No sign-up, no phone number. The result is a guideline — you can discuss the final choice with our manager.',
-  'calc.sex': 'Sex',
-  'calc.female': 'Female',
-  'calc.male': 'Male',
-  'calc.age': 'Age',
-  'calc.years': 'yrs',
-  'calc.height': 'Height',
-  'calc.cm': 'cm',
-  'calc.weight': 'Weight',
-  'calc.kg': 'kg',
-  'calc.activity': 'Activity',
-  'calc.act1': 'Minimal — desk job, no workouts',
-  'calc.act2': 'Light — 1–3 workouts a week',
-  'calc.act3': 'Moderate — 3–5 workouts a week',
-  'calc.act4': 'High — 6–7 workouts a week',
-  'calc.act5': 'Very high — physical work and sport',
-  'calc.goal': 'Goal',
-  'calc.lose': 'Lose weight',
-  'calc.keep': 'Maintain',
-  'calc.gain': 'Gain',
-  'calc.error': 'Please check: age 18–80, height 130–220 cm, weight 35–250 kg.',
-  'calc.submit': 'Calculate',
-  'calc.empty': 'Fill in the form and we’ll mark your guideline and the matching plan on the scale.',
-  'calc.scaleEyebrow': 'Our plans',
-  'calc.scaleTitle': 'Five plans — from 1250 to 2200&nbsp;kcal',
-  'calc.privacy': 'Your data isn’t sent anywhere — the calculation runs in your browser',
-  'calc.yourNeed': 'Your guideline',
-  'calc.kcalDay': 'kcal/day',
-  'calc.bmr': 'Basal metabolic rate',
-  'calc.withAct': 'With activity',
-  'calc.withGoal': 'With your goal',
-  'calc.note': 'Calculated with the Mifflin–St Jeor equation, adjusted for activity and goal. This is an approximate guideline, not medical advice.',
-
-  'plans.eyebrow': 'Plans and pricing',
-  'plans.title': 'Choose calories and duration',
-  'plans.lead': 'Prices are for a full day: breakfast, lunch and dinner. Delivery is free.',
-  'plans.durationLabel': 'Duration',
-  'plans.helpTitle': 'Not sure how many calories you need?',
-  'plans.helpText': 'The calculator gives you a guideline in a minute — based on your height, weight, activity and goal. No sign-up, no phone number.',
-  'plans.helpBtn': 'Find my calories',
-  'plans.note': 'Macros are shown as daily ranges: exact values depend on the day’s menu. Duration discounts don’t stack. Our manager will confirm the start date and any dietary details.',
-
-  'delivery.eyebrow': 'Delivery',
-  'delivery.title': 'How it works',
-  'delivery.s1.t': 'Choose a plan',
-  'delivery.s1.p': 'Pick calories and duration — yourself or with the calculator.',
-  'delivery.s2.t': 'Message our manager',
-  'delivery.s2.p': 'On WhatsApp or Telegram — we’ll prepare a message with your choice.',
-  'delivery.s3.t': 'Confirm the details',
-  'delivery.s3.p': 'The manager will confirm the start date, address and dietary details.',
-  'delivery.s4.t': 'Get your meals',
-  'delivery.s4.p': 'Free delivery in Pattaya every two days.',
-  'delivery.alt': 'Illustration: a courier on a scooter delivering meals around Pattaya',
-  'delivery.free': 'Free',
-  'delivery.freeText': 'We deliver your meals in Pattaya every two days. The start date and address are agreed with the manager.',
-
-  'faq.title': 'FAQ',
-  'faq.q1': 'What are the dishes made of?',
-  'faq.a1': 'A sample day: cottage cheese muffins with fruit, veal meatballs with bulgur and baked sea bass with quinoa. Our dishes are based on cottage cheese, chicken, duck, veal and fish; we don’t use pork. The manager will send you the full ingredients of every dish before you order. The menu and portion sizes depend on your plan.',
-  'faq.q2': 'Can you take allergies or foods I don’t eat into account?',
-  'faq.a2': 'Please tell the manager about any allergies or restrictions before you order. They will tell you which ingredients the dishes contain and honestly say whether a suitable option is possible.',
-  'faq.q3': 'How should I store the meals?',
-  'faq.a3': 'Put your meals in the fridge right after delivery. Storage conditions and shelf life are on the packaging — if anything is unclear, the manager will help.',
-  'faq.q4': 'How do I reheat the dishes?',
-  'faq.a4': 'Hot dishes just need reheating in a microwave. Reheating instructions are on the packaging.',
-  'faq.q5': 'How do I choose the calories?',
-  'faq.a5': 'Use the <a href="#calculator">calculator</a> — it shows an approximate guideline and the closest plan. You can also pick a plan yourself, and if you’re unsure, the manager will help you decide.',
-  'faq.q6': 'I have high cholesterol. Is the plan right for me?',
-  'faq.a6': 'Plate Mate plans are balanced everyday food, not a therapeutic diet, and we don’t promise changes in test results. If you have recommendations from your doctor, share them with the manager: we’ll show you the ingredients so you can decide together with your doctor.',
-  'faq.q7': 'How often do you deliver?',
-  'faq.a7': 'Every two days, free of charge within Pattaya. The manager will agree the first delivery date and address with you.',
-
-  'order.eyebrow': 'Your choice',
-  'order.title': 'One step left — message our manager',
-  'order.plan': 'Plan',
-  'order.duration': 'Duration',
-  'order.perDay': 'Price per day',
-  'order.total': 'Total',
-  'order.change': 'Change selection',
-  'order.msgLabel': 'Message for the manager — check it and send it yourself',
-  'order.copy': 'Copy message text',
-  'order.hint': 'The message is filled in automatically in WhatsApp and Telegram — just check it and press send.',
-
-  'footer.about': 'Ready-made meal plans with delivery. Pattaya, Thailand.',
-  'footer.contacts': 'Contacts',
-  'footer.dataTitle': 'About calculator data',
-  'footer.data': 'Age, height and weight are processed only in your browser and are never sent anywhere. We receive your order details only when you send a message to the manager yourself.',
-  'footer.disclaimer': 'Plate Mate meal plans are not a therapeutic diet and do not replace a doctor’s advice.',
-  'bar.cta': 'Order',
-};
-
-// Строки, которые формируются в скрипте
+/* ---------- Строки, которые собираются в скрипте ----------
+   Статические тексты уже вшиты в разметку: русские — в index.html,
+   английские — в en/index.html (собирается tools/build-en.js). */
 const STR = {
   ru: {
     kcalDay: 'ккал в день',
@@ -249,7 +106,7 @@ function daysLabel(n, lang) {
 
 /* ---------- Состояние ---------- */
 const state = {
-  lang: 'ru',
+  lang: document.documentElement.lang === 'en' ? 'en' : 'ru', // язык задан разметкой страницы
   kcal: CONFIG.defaultKcal,
   days: CONFIG.defaultDays,
   calc: null, // { kcal, goal }
@@ -260,11 +117,6 @@ const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const S = () => STR[state.lang];
 const fmt = n => Math.round(n).toLocaleString(state.lang === 'ru' ? 'ru-RU' : 'en-US');
 
-const storage = {
-  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
-  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* ignore */ } },
-};
-
 function priceFor(kcal, days) {
   const plan = CONFIG.plans.find(p => p.kcal === kcal);
   const dur = CONFIG.durations.find(d => d.days === days);
@@ -273,36 +125,11 @@ function priceFor(kcal, days) {
 }
 
 /* ==========================================================
-   Язык
+   Язык: русская версия — корень сайта, английская — /en/
    ========================================================== */
-const RU = {};
-function captureRu() {
-  $$('[data-i18n]').forEach(el => { RU[el.dataset.i18n] = el.innerHTML; });
-  $$('[data-i18n-attr]').forEach(el => {
-    el.dataset.i18nAttr.split(';').forEach(pair => {
-      const [attr, key] = pair.split(':');
-      if (!(key in RU)) RU[key] = el.getAttribute(attr);
-    });
-  });
-}
-
-function setLang(lang) {
-  state.lang = lang;
-  const dict = lang === 'en' ? EN : RU;
-  document.documentElement.lang = lang;
-  $$('[data-i18n]').forEach(el => {
-    const v = dict[el.dataset.i18n];
-    if (v != null) el.innerHTML = v;
-  });
-  $$('[data-i18n-attr]').forEach(el => {
-    el.dataset.i18nAttr.split(';').forEach(pair => {
-      const [attr, key] = pair.split(':');
-      if (dict[key] != null) el.setAttribute(attr, dict[key]);
-    });
-  });
-  $$('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
-  storage.set('pm-lang', lang);
-  renderAll();
+// Старые ссылки вида ?lang=en ведут на английскую страницу
+if (state.lang === 'ru' && new URLSearchParams(location.search).get('lang') === 'en') {
+  location.replace('en/' + location.hash);
 }
 
 /* ==========================================================
@@ -589,8 +416,6 @@ burger.addEventListener('click', () => toggleNav(!document.body.classList.contai
 $$('#nav a').forEach(a => a.addEventListener('click', () => toggleNav(false)));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleNav(false); });
 
-$$('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
-
 /* ==========================================================
    Прокрутка: шапка, мобильная панель, движение фото
    ========================================================== */
@@ -657,8 +482,5 @@ function renderAll() {
   renderOrder();
 }
 
-captureRu();
-const urlLang = new URLSearchParams(location.search).get('lang');
-const initialLang = ['ru', 'en'].includes(urlLang) ? urlLang : (storage.get('pm-lang') === 'en' ? 'en' : 'ru');
-setLang(initialLang);
+renderAll();
 onScroll();

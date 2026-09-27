@@ -6,6 +6,24 @@
   <title data-i18n="meta.title">Plate Mate — рационы питания с доставкой в Паттайе</title>
   <meta name="description" data-i18n-attr="content:meta.description" content="Готовые рационы на день: завтрак, обед и ужин с понятной калорийностью и БЖУ. Пять вариантов калорийности, бесплатная доставка по Паттайе раз в два дня.">
   <meta name="theme-color" content="#FFF5EE">
+
+  <!-- Адреса версий: русская — корень, английская — /en/. data-self-url сборка меняет на адрес /en/ -->
+  <link rel="canonical" data-self-url href="https://kuranovich.github.io/Lending-Plate-Mate-Meal-prep/">
+  <link rel="alternate" hreflang="ru" href="https://kuranovich.github.io/Lending-Plate-Mate-Meal-prep/">
+  <link rel="alternate" hreflang="en" href="https://kuranovich.github.io/Lending-Plate-Mate-Meal-prep/en/">
+  <link rel="alternate" hreflang="x-default" href="https://kuranovich.github.io/Lending-Plate-Mate-Meal-prep/">
+
+  <!-- Превью ссылки в мессенджерах и соцсетях -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Plate Mate">
+  <meta property="og:title" data-i18n-attr="content:meta.title" content="Plate Mate — рационы питания с доставкой в Паттайе">
+  <meta property="og:description" data-i18n-attr="content:meta.ogDescription" content="Завтрак, обед и ужин с понятной калорийностью и БЖУ. От 750 ฿ в день, бесплатная доставка по Паттайе.">
+  <meta property="og:url" data-self-url content="https://kuranovich.github.io/Lending-Plate-Mate-Meal-prep/">
+  <meta property="og:image" content="https://kuranovich.github.io/Lending-Plate-Mate-Meal-prep/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" data-i18n-attr="content:meta.locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="images/icons/icon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="images/icons/icon-192.png" type="image/png" sizes="192x192">
@@ -39,8 +57,8 @@
 
     <div class="header__actions">
       <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <a href="./" hreflang="ru" lang="ru" aria-current="page">RU</a>
+        <a href="en/" hreflang="en" lang="en">EN</a>
       </div>
       <a class="btn btn--primary btn--sm header__cta" href="#plans" data-i18n="cta.choose">Выбрать рацион</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:nav.open" aria-label="Открыть меню">
@@ -288,7 +306,7 @@
         <a class="btn btn--primary plans-help__btn" href="#calculator" data-to-calc data-i18n="plans.helpBtn">Подобрать калорийность</a>
       </div>
       <noscript>
-        <p class="plans__note">1250 ккал — 750 ฿ · 1500 ккал — 850 ฿ · 1800 ккал — 950 ฿ · 2000 ккал — 1050 ฿ · 2200 ккал — 1150 ฿ в день.</p>
+        <p class="plans__note" data-i18n="plans.noscript">1250 ккал — 750 ฿ · 1500 ккал — 850 ฿ · 1800 ккал — 950 ฿ · 2000 ккал — 1050 ฿ · 2200 ккал — 1150 ฿ в день.</p>
       </noscript>
 
       <p class="plans__note" data-i18n="plans.note">БЖУ указаны диапазоном на день: точные значения зависят от меню конкретного дня. Скидки за срок не суммируются. Дату начала и особенности питания согласует менеджер.</p>

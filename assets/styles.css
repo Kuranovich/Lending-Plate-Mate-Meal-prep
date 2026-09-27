@@ -145,11 +145,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav + .header__actions { margin-left: 0; }
 
 .lang { display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(23, 37, 29, .06); }
-.lang button {
-  min-width: 42px; height: 36px; padding: 0 10px; border: 0; border-radius: 999px;
-  background: transparent; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--muted);
+.lang a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 42px; height: 36px; padding: 0 10px; border-radius: 999px;
+  font-size: 14px; font-weight: 600; text-decoration: none; color: var(--muted);
 }
-.lang button[aria-pressed="true"] { background: var(--white); color: var(--ink); box-shadow: var(--shadow-sm); }
+.lang a:not([aria-current]):hover { color: var(--ink); }
+.lang a[aria-current="page"] { background: var(--white); color: var(--ink); box-shadow: var(--shadow-sm); }
 
 .burger { display: none; width: 48px; height: 48px; border: 0; border-radius: 50%; background: var(--green); cursor: pointer; position: relative; }
 .burger span { position: absolute; left: 15px; right: 15px; height: 2px; border-radius: 2px; background: var(--white); transition: transform .3s var(--ease), top .3s var(--ease); }
@@ -636,5 +638,5 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .hero__facts li:last-child { grid-column: 1 / -1; }
   .field-row { grid-template-columns: 1fr 1fr; }
   .field-row .field:first-child { grid-column: 1 / -1; }
-  .lang button { min-width: 36px; padding: 0 8px; }
+  .lang a { min-width: 36px; padding: 0 8px; }
 }
