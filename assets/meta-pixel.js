@@ -6,15 +6,17 @@
    полностью отключает пиксель, баннер и ссылку на настройки. До согласия и при
    отказе к Meta не уходит ни одного запроса; noscript-вариант не используется.
 
-   Что отправляется: только стандартное событие PageView (адрес страницы).
+   Что отправляется: стандартное событие PageView (адрес страницы) и стандартное
+   событие Contact без параметров — при нажатии на ссылку WhatsApp или Telegram.
    Не отправляется: данные калькулятора, выбранный рацион, текст сообщения
-   менеджеру, клики по кнопкам (autoConfig выключен), данные пользователя
+   менеджеру, другие клики (autoConfig выключен), данные пользователя
    для расширенного подбора соответствий (fbq('init') вызывается без них).
    ========================================================== */
 (function () {
   var PIXEL_ID = '1412387317769778';
   var ENABLED = true; // false — полностью отключить пиксель и баннер согласия
   var started = false;
+  var granted = false; // согласие действует на этой странице (не отозвано)
 
   // Русская страница с ?lang=en сразу перенаправляется на /en/ (см. app.js) —
   // PageView отправит уже английская страница, здесь не дублируем.
@@ -26,6 +28,7 @@
   // Согласие получено: загрузить пиксель и отправить один PageView за загрузку страницы
   function grant() {
     if (!ENABLED || isRedirecting()) return false;
+    granted = true;
     if (started) {
       // согласие отозвали и снова дали на той же странице — продолжаем без повторного PageView
       if (window.fbq) fbq('consent', 'grant');
@@ -53,6 +56,7 @@
   // Согласие отозвано: приостановить отправку на этой странице и удалить cookie Meta.
   // При следующих загрузках пиксель не загружается — выбор хранит consent.js.
   function revoke() {
+    granted = false;
     if (started && window.fbq) fbq('consent', 'revoke');
     var host = location.hostname;
     ['_fbp', '_fbc'].forEach(function (name) {
@@ -61,6 +65,14 @@
       });
     });
   }
+
+  // Клик по ссылке на WhatsApp или Telegram — заявка менеджеру. Отправляем только
+  // стандартное событие Contact, без параметров: ни рациона, ни суммы, ни текста сообщения.
+  document.addEventListener('click', function (e) {
+    if (!granted || !window.fbq) return;
+    var link = e.target.closest && e.target.closest('a[href^="https://wa.me/"], a[href^="https://t.me/"]');
+    if (link) fbq('track', 'Contact');
+  });
 
   window.PlateMatePixel = {
     isEnabled: function () { return ENABLED; },
